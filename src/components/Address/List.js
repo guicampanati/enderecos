@@ -1,10 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ListItem from './ListItem';
-import addressService from '../../services/addresses';
 
 const List = ({ addresses }) => (
   <div>
-    <button onClick={() => addressService.create()}>Adicionar Endereço</button>
+    <Link to={'/criar'}>Adicionar Endereço</Link>
     {addresses &&
       addresses.map(address => <ListItem key={address.id} address={address} />)}
   </div>

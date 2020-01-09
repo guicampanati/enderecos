@@ -63,6 +63,7 @@ const theme = {
     white: '#fff',
     gray: {
       light: '#edf2f7',
+      medium: '#718096',
       dark: '#2d3748',
       darker: '#1a202c'
     },

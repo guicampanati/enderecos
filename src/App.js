@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Create from './components/Create';
 import Edit from './components/Edit';
 import Navigation from './components/Navigation';
+import Delete from './components/Delete';
 
 const App = () => (
   <Router>
@@ -16,6 +17,9 @@ const App = () => (
         </Route>
         <Route path={'/editar/:id'}>
           <Edit />
+        </Route>
+        <Route path={'/deletar/:id'}>
+          <Delete />
         </Route>
         <Route path={'/'}>
           <Home />

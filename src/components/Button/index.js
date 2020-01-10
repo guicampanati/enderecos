@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import Container from './Container';
 
@@ -16,9 +16,23 @@ const Button = styled(Link)`
   border-color: ${props => props.theme.color.blue.dark};
   background-color: ${props => props.theme.color.blue.light};
   &:hover {
-    border-color: transparent;
+    border-color: ${props => props.theme.color.transparent};
     background-color: ${props => props.theme.color.blue.dark};
   }
+
+  ${props =>
+    props.danger &&
+    css`
+      font-weight: ${props => props.theme.fontWeight.bold};
+      color: ${props => props.theme.color.red.dark};
+      border-color: ${props => props.theme.color.red.dark};
+      background-color: ${props => props.theme.color.transparent};
+      &:hover {
+        color: ${props => props.theme.color.white};
+        border-color: ${props => props.theme.color.transparent};
+        background-color: ${props => props.theme.color.red.dark};
+      }
+    `}
 `;
 
 Button.Container = Container;

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Card from '../Card';
 import Button from '../Button';
 import viacep from '../../services/viacep';
-import addressService from '../../services/addresses';
 
 const ListItem = ({ address }) => {
   const [addressData, setAddressData] = useState(null);
@@ -31,9 +30,9 @@ const ListItem = ({ address }) => {
             </p>
             <Button.Container>
               <Button to={`/editar/${address.id}`}>Editar</Button>
-              <button onClick={() => addressService.remove(address.id)}>
+              <Button danger="true" to={`/deletar/${address.id}`}>
                 Deletar
-              </button>
+              </Button>
             </Button.Container>
           </Card>
         ) : (

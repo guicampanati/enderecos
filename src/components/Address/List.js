@@ -1,9 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import CreateItem from './CreateItem';
 import ListItem from './ListItem';
 
 const List = ({ addresses }) => (
   <Container>
+    <CreateItem />
     {addresses &&
       addresses.map(address => <ListItem key={address.id} address={address} />)}
   </Container>

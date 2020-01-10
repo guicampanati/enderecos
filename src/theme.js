@@ -59,6 +59,7 @@ const theme = {
     screen: '100vh'
   },
   color: {
+    transparent: 'transparent',
     black: '#000',
     white: '#fff',
     gray: {
@@ -70,6 +71,11 @@ const theme = {
     blue: {
       light: '#4299e1',
       dark: '#2b6cb0'
+    },
+    red: {
+      light: '#fed7d7',
+      medium: '#f56565',
+      dark: '#c53030'
     }
   },
   borderRadius: {

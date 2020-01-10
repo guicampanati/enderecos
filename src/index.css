@@ -32,3 +32,9 @@ code {
 .inline {
   display: inline-block;
 }
+
+a:link,
+a:visited {
+  text-decoration: none;
+  cursor: pointer;
+}

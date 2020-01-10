@@ -14,34 +14,37 @@ const ListItem = ({ address }) => {
   }, [address.cep]);
 
   return (
-    <CardWrapper>
-      {addressData ? (
-        <Card>
-          <h3>{address.cep}</h3>
-          <h4>
-            {addressData.logradouro}, {address.numero}
-            {address.complemento && <span>/{address.complemento}</span>}
-          </h4>
-          <p>
-            <span>
-              {addressData.bairro}, {addressData.localidade} - {addressData.uf}
-            </span>
-          </p>
-          <ButtonWrapper>
-            <Button to={`/editar/${address.id}`}>Editar</Button>
-            <button onClick={() => addressService.remove(address.id)}>
-              Deletar
-            </button>
-          </ButtonWrapper>
-        </Card>
-      ) : (
-        <div>Carregando...</div>
-      )}
-    </CardWrapper>
+    <CardContainer>
+      <CardWrapper>
+        {addressData ? (
+          <Card>
+            <h3>{address.cep}</h3>
+            <h4>
+              {addressData.logradouro}, {address.numero}
+              {address.complemento && <span>/{address.complemento}</span>}
+            </h4>
+            <p>
+              <span>
+                {addressData.bairro}, {addressData.localidade} -{' '}
+                {addressData.uf}
+              </span>
+            </p>
+            <ButtonWrapper>
+              <Button to={`/editar/${address.id}`}>Editar</Button>
+              <button onClick={() => addressService.remove(address.id)}>
+                Deletar
+              </button>
+            </ButtonWrapper>
+          </Card>
+        ) : (
+          <div>Carregando...</div>
+        )}
+      </CardWrapper>
+    </CardContainer>
   );
 };
 
-const CardWrapper = styled.div`
+const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: ${props => props.theme.width.full};
@@ -54,6 +57,9 @@ const CardWrapper = styled.div`
   margin-bottom: ${props => props.theme.spacing.s8};
   padding-left: ${props => props.theme.spacing.s3};
   padding-right: ${props => props.theme.spacing.s3};
+`;
+
+const CardWrapper = styled.div`
   overflow: hidden;
   background-color: ${props => props.theme.color.white};
   border-radius: ${props => props.theme.borderRadius.lg};
@@ -67,10 +73,12 @@ const Card = styled.div`
 
   h3 {
     font-weight: ${props => props.theme.fontWeight.semibold};
+    margin: 0;
   }
 
   h4 {
     margin-top: ${props => props.theme.spacing.s2};
+    margin-bottom: ${props => props.theme.spacing.s0};
     font-weight: ${props => props.theme.fontWeight.semibold};
     font-size: ${props => props.theme.fontSize.lg};
     overflow: hidden;
@@ -80,6 +88,7 @@ const Card = styled.div`
 
   p {
     margin-top: ${props => props.theme.spacing.s2};
+    margin-bottom: ${props => props.theme.spacing.s0};
     display: inline-flex;
     align-items: center;
 

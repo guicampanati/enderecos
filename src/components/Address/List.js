@@ -5,7 +5,7 @@ import ListItem from './ListItem';
 
 const List = ({ addresses }) => (
   <Container>
-    <Link to={'/criar'}>Adicionar Endereço</Link>
+    {/* <Link to={'/criar'}>Adicionar Endereço</Link> */}
     {addresses &&
       addresses.map(address => <ListItem key={address.id} address={address} />)}
   </Container>

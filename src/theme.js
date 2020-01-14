@@ -136,6 +136,10 @@ const theme = {
     w11_12: '91.666667%',
     full: '100%',
     screen: '100vw'
+  },
+  height: {
+    full: '100%',
+    screen: '100vh'
   }
 };
 

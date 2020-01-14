@@ -49,6 +49,15 @@ const theme = {
     extrabold: '800',
     black: '900'
   },
+  maxWidth: {
+    none: 'none',
+    xs: '20rem',
+    sm: '24rem',
+    md: '28rem',
+    lg: '32rem',
+    xl: '36rem',
+    full: '100%'
+  },
   maxHeight: {
     full: '100%',
     screen: '100vh'

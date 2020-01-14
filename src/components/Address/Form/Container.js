@@ -10,7 +10,7 @@ const Container = styled.div`
   margin: auto;
   margin-top: ${props => props.theme.spacing.s4};
   padding: ${props => props.theme.spacing.s8};
-  max-width: 20rem;
+  max-width: ${props => props.theme.maxWidth.xs};
 `;
 
 export default Container;

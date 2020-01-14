@@ -84,7 +84,8 @@ const theme = {
     red: {
       light: '#fed7d7',
       medium: '#f56565',
-      dark: '#c53030'
+      dark: '#c53030',
+      darker: '#9b2c2c'
     }
   },
   borderRadius: {

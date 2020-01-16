@@ -11,6 +11,7 @@ import Wrapper from './Wrapper';
 import InputLabel from './InputLabel';
 import InputField from './InputField';
 import Button from './Button';
+import Spinner from '../../Loading/Spinner';
 
 const Form = ({ onSubmit, initialValues }) => (
   <Container>
@@ -25,7 +26,9 @@ const Form = ({ onSubmit, initialValues }) => (
                 <InputField error={meta.error} touched={meta.touched}>
                   <InputLabel>CEP</InputLabel>
                   <input {...input} type="text" />
-                  {validating && <span>Carregando...</span>}
+                  {validating && (
+                    <Spinner style={{ left: '40%', top: '-15px' }} />
+                  )}
                   {meta.error && meta.touched && <p>{meta.error}</p>}
                 </InputField>
               )}

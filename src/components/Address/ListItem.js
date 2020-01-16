@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../Card';
 import Button from '../Button';
+import Loading from '../Loading';
 import viacep from '../../services/viacep';
 
 const ListItem = ({ address }) => {
@@ -36,7 +37,7 @@ const ListItem = ({ address }) => {
             </Button.Container>
           </Card>
         ) : (
-          <div>Carregando...</div>
+          <Loading />
         )}
       </Card.Wrapper>
     </Card.Container>

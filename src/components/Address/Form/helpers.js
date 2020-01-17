@@ -1,3 +1,4 @@
+import memoize from 'lodash.memoize';
 import viacep from '../../../services/viacep';
 
 export const normalizeCep = value => {
@@ -19,13 +20,13 @@ export const normalizeNum = value => {
   return value.replace(/[^\d]/, '');
 };
 
-const verifyCep = async value => {
+const verifyCep = memoize(async value => {
   const response = await viacep.get(`${value}/json`);
 
   if (response.data.erro) {
     return 'CEP Inválido.';
   }
-};
+});
 
 export const validateCep = value => {
   const cepRegex = /^\d{5}-\d{3}$/i;

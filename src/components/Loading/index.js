@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Spinner from './Spinner';
 
 const Loading = () => (
-  <Container>
+  <Container className="loading">
     <Spinner />
   </Container>
 );

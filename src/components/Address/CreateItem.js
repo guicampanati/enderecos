@@ -5,7 +5,7 @@ import Card from '../Card';
 import Add from '../../svg/Add';
 
 const CreateItem = () => (
-  <Card.Container>
+  <Card.Container className="create_item">
     <Card.Wrapper>
       <LinkAdd to="/criar">
         <Add />

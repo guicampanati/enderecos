@@ -14,7 +14,7 @@ const ListItem = ({ address }) => {
   }, [address.cep]);
 
   return (
-    <Card.Container>
+    <Card.Container className="list_item">
       <Card.Wrapper>
         {addressData ? (
           <Card>

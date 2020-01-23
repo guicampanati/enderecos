@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const InputLabel = styled.div`
+const InputLabel = styled.label`
   display: block;
   color: ${props => props.theme.color.gray.dark};
   font-size: ${props => props.theme.fontSize.sm};

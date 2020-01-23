@@ -24,8 +24,8 @@ const Form = ({ onSubmit, initialValues }) => (
             <Field name="cep" validate={validateCep} parse={normalizeCep}>
               {({ input, meta }) => (
                 <InputField error={meta.error} touched={meta.touched}>
-                  <InputLabel>CEP</InputLabel>
-                  <input {...input} type="text" />
+                  <InputLabel htmlFor="cep-input">CEP</InputLabel>
+                  <input id="cep-input" {...input} type="text" />
                   {validating && (
                     <Spinner style={{ left: '40%', top: '-15px' }} />
                   )}
@@ -37,8 +37,8 @@ const Form = ({ onSubmit, initialValues }) => (
             <Field name="numero" validate={validateNum} parse={normalizeNum}>
               {({ input, meta }) => (
                 <InputField error={meta.error} touched={meta.touched}>
-                  <InputLabel>Número</InputLabel>
-                  <input {...input} type="text" />
+                  <InputLabel htmlFor="numero-input">Número</InputLabel>
+                  <input id="numero-input" {...input} type="text" />
                   {meta.error && meta.touched && <p>{meta.error}</p>}
                 </InputField>
               )}
@@ -47,8 +47,10 @@ const Form = ({ onSubmit, initialValues }) => (
             <Field name="complemento">
               {({ input }) => (
                 <InputField>
-                  <InputLabel>Complemento</InputLabel>
-                  <input {...input} type="text" />
+                  <InputLabel htmlFor="complemento-input">
+                    Complemento
+                  </InputLabel>
+                  <input id="complemento-input" {...input} type="text" />
                 </InputField>
               )}
             </Field>

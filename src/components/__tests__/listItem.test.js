@@ -46,7 +46,7 @@ describe('<ListItem />', () => {
     expect(editButton).toHaveTextContent('Editar');
     expect(editButton).toHaveAttribute(
       'href',
-      expect.stringMatching('/editar/64573eab-7cb0-47d7-8966-c3eb20c5c103')
+      expect.stringMatching(`/editar/${props.id}`)
     );
   });
 
@@ -56,7 +56,7 @@ describe('<ListItem />', () => {
     expect(deleteButton).toHaveAttribute('danger');
     expect(deleteButton).toHaveAttribute(
       'href',
-      expect.stringMatching('/deletar/64573eab-7cb0-47d7-8966-c3eb20c5c103')
+      expect.stringMatching(`/deletar/${props.id}`)
     );
   });
 });

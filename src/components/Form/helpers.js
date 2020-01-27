@@ -1,5 +1,5 @@
 import memoize from 'lodash.memoize';
-import viacep from '../../../services/viacep';
+import viacep from '../../services/viacep';
 
 export const normalizeCep = value => {
   if (!value) return value;

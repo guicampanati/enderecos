@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '../../test-utils';
 import { fireEvent, waitForElement } from '@testing-library/react';
-import Form from '../Address/Form';
+import Form from '../Form';
 
 describe('<Form />', () => {
   let component;

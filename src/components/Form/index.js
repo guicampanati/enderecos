@@ -11,7 +11,7 @@ import Wrapper from './Wrapper';
 import InputLabel from './InputLabel';
 import InputField from './InputField';
 import Button from './Button';
-import Spinner from '../../Loading/Spinner';
+import Spinner from '../Loading/Spinner';
 
 const Form = ({ onSubmit, initialValues }) => (
   <Container>

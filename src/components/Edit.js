@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import Form from './Address/Form';
+import Form from './Form';
 import addressService from '../services/addresses';
 
 const Edit = () => {

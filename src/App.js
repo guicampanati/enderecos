@@ -8,7 +8,7 @@ import Navigation from './components/Navigation';
 import Delete from './components/Delete';
 
 const App = () => (
-  <Router>
+  <Router basename={'/enderecos'}>
     <Container>
       <Navigation />
       <Switch>

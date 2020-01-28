@@ -1,68 +1,21 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [endereços](https://guicampanati.github.io/enderecos/)
 
-## Available Scripts
+### Sobre
 
-In the project directory, you can run:
+Aplicação client-side onde é possível armazenar uma lista de endereços, sendo possível realizar operações CRUD. Nesta primeira versão da aplicação, a lista é salva no localStorage do navegador. Se o usuário sair da página e voltar a lista é recuperada.
 
-### `npm start`
+### Recursos
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+O projeto foi inicializado com o [create-react-app](https://github.com/facebook/create-react-app).
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Para validação do CEP está sendo utilizado o serviço da api [ViaCEP](https://viacep.com.br/), após a entrada ser validada com os recursos do [react-final-form](https://github.com/final-form/react-final-form), que possibilita formatação e validação assíncrona.
 
-### `npm test`
+A técnica utilizada para estilizar os componentes foi CSS-in-JS através da biblioteca [style-components](https://styled-components.com/), que permite abstrair o CSS no próprio nível do componente, usando JavaScript para descrever os estilos de maneira declarativa e sustentável.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+A aplicação utiliza a biblioteca [react-router-dom](https://github.com/ReactTraining/react-router/tree/master/packages/react-router-dom), que permite roteamento através de manipulação do histórico da sessão do navegador pela interface [history](https://developer.mozilla.org/pt-BR/docs/Web/API/History) do HTML5.
 
-### `npm run build`
+### Testes
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Os testes foram implementados com a biblioteca de testes [Jest](https://jestjs.io/), que é configurada por padrão para aplicativos criados com create-react-app. Além do Jest, foi utilizado uma biblioteca para renderizar componentes específica para testes, no caso [react-testing-library](https://github.com/testing-library/react-testing-library), que facilita testes de componentes que utilizam o recurso react hooks, também configurada por padrão na versão 3.3.0 do create-react-app.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Foram escritos somente com a proposta de testar os componentes responsáveis pela renderização de dados, com os serviços que disponibilizariam esses dados sendo <i>mockados</i> para tal realização.

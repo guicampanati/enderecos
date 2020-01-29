@@ -1,23 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import addressService from '../services/addresses';
 import Modal from './Modal';
 import Button from './Button';
+import useAddress from '../common/useAddress';
 
 const Delete = () => {
-  const [address, setAddress] = useState(null);
   const { id } = useParams();
+  const address = useAddress(id);
   const history = useHistory();
-
-  useEffect(() => {
-    const addressToEdit = addressService
-      .getAll()
-      .find(address => address.id === id);
-
-    if (addressToEdit) {
-      setAddress(addressToEdit);
-    }
-  }, [id]);
 
   const renderActions = () => (
     <Button.Container>

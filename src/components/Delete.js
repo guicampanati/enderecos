@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import addressService from '../services/addresses';
 import Modal from './Modal';
 import Button from './Button';
-import useAddress from '../common/useAddress';
+import { useAddress } from '../hooks';
 
 const Delete = () => {
   const { id } = useParams();

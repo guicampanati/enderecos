@@ -1,17 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from '../Card';
 import Button from '../Button';
 import Loading from '../Loading';
-import viacep from '../../services/viacep';
+import { useAddressData } from '../../hooks';
 
 const ListItem = ({ address }) => {
-  const [addressData, setAddressData] = useState(null);
-
-  useEffect(() => {
-    viacep.get(`${address.cep}/json`).then(response => {
-      setAddressData(response.data);
-    });
-  }, [address.cep]);
+  const addressData = useAddressData(address.cep);
 
   return (
     <Card.Container className="list_item">

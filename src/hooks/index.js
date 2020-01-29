@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import addressService from '../services/addresses';
+import viacep from '../services/viacep';
 
-const useAddress = id => {
+export const useAddress = id => {
   const [address, setAddress] = useState(null);
 
   useEffect(() => {
@@ -17,4 +18,14 @@ const useAddress = id => {
   return address;
 };
 
-export default useAddress;
+export const useAddressData = cep => {
+  const [addressData, setAddressData] = useState(null);
+
+  useEffect(() => {
+    viacep.get(`${cep}/json`).then(response => {
+      setAddressData(response.data);
+    });
+  }, [cep]);
+
+  return addressData;
+};

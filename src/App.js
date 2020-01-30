@@ -6,6 +6,7 @@ import Create from './components/Create';
 import Edit from './components/Edit';
 import Navigation from './components/Navigation';
 import Delete from './components/Delete';
+import Info from './components/Info';
 
 const App = () => (
   <Router basename={'/enderecos'}>
@@ -20,6 +21,9 @@ const App = () => (
         </Route>
         <Route path={'/deletar/:id'}>
           <Delete />
+        </Route>
+        <Route path={'/:id'}>
+          <Info />
         </Route>
         <Route path={'/'}>
           <Home />

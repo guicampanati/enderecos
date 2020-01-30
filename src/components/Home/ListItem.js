@@ -24,6 +24,7 @@ const ListItem = ({ address }) => {
               </span>
             </p>
             <Button.Container>
+              <Button to={`/${address.id}`}>Info</Button>
               <Button to={`/editar/${address.id}`}>Editar</Button>
               <Button danger="true" to={`/deletar/${address.id}`}>
                 Deletar

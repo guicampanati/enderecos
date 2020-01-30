@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '../../test-utils';
 import { waitForElement } from '@testing-library/react';
-import ListItem from '../Address/ListItem';
+import ListItem from '../Home/ListItem';
 
 describe('<ListItem />', () => {
   const props = {
@@ -42,7 +42,7 @@ describe('<ListItem />', () => {
   });
 
   test('should render edit link', () => {
-    const editButton = component.container.querySelector('a');
+    const editButton = component.container.querySelector('a:nth-child(2)');
     expect(editButton).toHaveTextContent('Editar');
     expect(editButton).toHaveAttribute(
       'href',
@@ -51,7 +51,7 @@ describe('<ListItem />', () => {
   });
 
   test('should render delete link', () => {
-    const deleteButton = component.container.querySelector('a:nth-child(2)');
+    const deleteButton = component.container.querySelector('a:nth-child(3)');
     expect(deleteButton).toHaveTextContent('Deletar');
     expect(deleteButton).toHaveAttribute('danger');
     expect(deleteButton).toHaveAttribute(

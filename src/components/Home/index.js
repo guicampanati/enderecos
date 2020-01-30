@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import CreateItem from './Address/CreateItem';
-import ListItem from './Address/ListItem';
-import addressService from '../services/addresses';
+import CreateItem from './CreateItem';
+import ListItem from './ListItem';
+import addressService from '../../services/addresses';
 
 const Home = () => {
   const [addresses, setAddresses] = useState(null);

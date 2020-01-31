@@ -1,46 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import Card from '../Card';
-import { useAddress } from '../../hooks';
+import {
+  useAddress,
+  useUserCoords,
+  useAddressData,
+  useAddressCoords,
+  useAddressWeather
+} from '../../hooks';
 import Detail from './Detail';
 import Map from './Map';
 import Weather from './Weather';
 import Distance from './Distance';
 
 const Info = () => {
-  const [userCoords, setUserCoords] = useState(null);
   const { id } = useParams();
   const address = useAddress(id);
-
-  useEffect(() => {
-    // Adquirindo posição do usuário
-    try {
-      window.navigator.geolocation.getCurrentPosition(pos =>
-        setUserCoords(pos.coords)
-      );
-    } catch {
-      setUserCoords(false);
-    }
-  }, []);
+  const addressData = useAddressData(address);
+  const userCoords = useUserCoords();
+  const addressCoords = useAddressCoords(address, addressData);
+  const addressWeather = useAddressWeather(addressCoords);
 
   return (
     <Container>
-      {address && (
-        <Card.Wrapper>
-          <Detail address={address} />
+      <Card.Wrapper>
+        <Detail address={address} addressData={addressData} />
 
-          <Map address={address} />
+        <Map addressCoords={addressCoords} />
 
-          <Weather address={address} />
+        <Weather addressWeather={addressWeather} />
 
-          {userCoords ? (
-            <Distance userCoords={userCoords} address={address} />
-          ) : (
-            <span>Geolocalização não disponível</span>
-          )}
-        </Card.Wrapper>
-      )}
+        <Distance userCoords={userCoords} addressCoords={addressCoords} />
+      </Card.Wrapper>
     </Container>
   );
 };

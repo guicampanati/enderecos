@@ -5,7 +5,7 @@ import Loading from '../Loading';
 import { useAddressData } from '../../hooks';
 
 const ListItem = ({ address }) => {
-  const addressData = useAddressData(address.cep);
+  const addressData = useAddressData(address);
 
   return (
     <Card.Container className="list_item">

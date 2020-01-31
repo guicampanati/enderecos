@@ -20,16 +20,35 @@ export const useAddress = id => {
   return address;
 };
 
-export const useAddressData = cep => {
+export const useAddressData = address => {
   const [addressData, setAddressData] = useState(null);
 
   useEffect(() => {
-    viacep.get(`${cep}/json`).then(response => {
-      setAddressData(response.data);
-    });
-  }, [cep]);
+    if (address) {
+      viacep.get(`${address.cep}/json`).then(response => {
+        setAddressData(response.data);
+      });
+    }
+  }, [address]);
 
   return addressData;
+};
+
+export const useUserCoords = () => {
+  const [userCoords, setUserCoords] = useState(null);
+
+  useEffect(() => {
+    // Adquirindo posição do usuário
+    try {
+      window.navigator.geolocation.getCurrentPosition(pos =>
+        setUserCoords(pos.coords)
+      );
+    } catch {
+      setUserCoords(false);
+    }
+  }, []);
+
+  return userCoords;
 };
 
 export const useAddressCoords = (address, addressData) => {

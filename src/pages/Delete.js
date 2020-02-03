@@ -1,8 +1,8 @@
 import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import addressService from '../services/addresses';
-import Modal from './Modal';
-import Button from './Button';
+import Modal from '../components/Modal';
+import Button from '../components/Button';
 import { useAddress } from '../hooks';
 
 const Delete = () => {

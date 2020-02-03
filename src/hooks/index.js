@@ -4,6 +4,22 @@ import viacep from '../services/viacep';
 import locationiq from '../services/locationiq';
 import openweather from '../services/openweather';
 
+export const LOCATIONIQ_API_KEY = 'pk.46077fc7923e32dabf8eaee20c030b63';
+export const OPENWEATHER_API_KEY = 'c8606fd98812085499b9669c638e9ed0';
+
+export const useAddressList = () => {
+  const [addresses, setAddresses] = useState(null);
+
+  useEffect(() => {
+    const addressList = addressService.getAll();
+    if (addressList) {
+      setAddresses(addressList);
+    }
+  }, []);
+
+  return addresses;
+};
+
 export const useAddress = id => {
   const [address, setAddress] = useState(null);
 
@@ -53,7 +69,6 @@ export const useUserCoords = () => {
 
 export const useAddressCoords = (address, addressData) => {
   const [addressCoords, setAddressCoords] = useState(null);
-  const LOCATIONIQ_API_KEY = 'pk.46077fc7923e32dabf8eaee20c030b63';
 
   useEffect(() => {
     if (addressData) {
@@ -78,7 +93,6 @@ export const useAddressCoords = (address, addressData) => {
 
 export const useAddressWeather = addressCoords => {
   const [addressWeather, setAddressWeather] = useState(null);
-  const OPENWEATHER_API_KEY = 'c8606fd98812085499b9669c638e9ed0';
 
   useEffect(() => {
     if (addressCoords) {

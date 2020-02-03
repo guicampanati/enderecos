@@ -1,12 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
-import Home from './components/Home';
-import Create from './components/Create';
-import Edit from './components/Edit';
+import Home from './pages/Home';
+import Create from './pages/Create';
+import Edit from './pages/Edit';
+import Delete from './pages/Delete';
+import Info from './pages/Info';
 import Navigation from './components/Navigation';
-import Delete from './components/Delete';
-import Info from './components/Info';
 
 const App = () => (
   <Router basename={'/enderecos'}>

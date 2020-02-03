@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, useHistory } from 'react-router-dom';
-import Form from './Form';
+import Form from '../components/Form';
 import addressService from '../services/addresses';
 import { useAddress } from '../hooks';
 

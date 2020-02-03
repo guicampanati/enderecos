@@ -1,25 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import CreateItem from './CreateItem';
-import ListItem from './ListItem';
-import addressService from '../../services/addresses';
+import Address from './Address';
+import { useAddressList } from '../../hooks';
 
 const Home = () => {
-  const [addresses, setAddresses] = useState(null);
-
-  useEffect(() => {
-    const addressList = addressService.getAll();
-    if (addressList) {
-      setAddresses(addressList);
-    }
-  }, []);
+  const addresses = useAddressList();
 
   return (
     <Container>
       <CreateItem />
       {addresses &&
         addresses.map(address => (
-          <ListItem key={address.id} address={address} />
+          <Address key={address.id} address={address} />
         ))}
     </Container>
   );

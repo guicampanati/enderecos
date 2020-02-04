@@ -3,8 +3,8 @@ import React from 'react';
 const Add = () => (
   <>
     <svg
-      width="53"
-      height="53"
+      width="32"
+      height="32"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
     >

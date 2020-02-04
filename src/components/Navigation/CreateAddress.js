@@ -1,26 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Card from '../../components/Card';
 import Add from '../../svg/Add';
 
 const CreateItem = () => (
-  <Card.Container className="create_item">
-    <Card.Wrapper>
-      <LinkAdd to="/criar">
-        <Add />
-        <div>Adicionar Endereço</div>
-      </LinkAdd>
-    </Card.Wrapper>
-  </Card.Container>
+  <LinkAdd to="/criar">
+    <Add />
+    <div>Adicionar Endereço</div>
+  </LinkAdd>
 );
 
 const LinkAdd = styled(Link)`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  padding: ${props => props.theme.spacing.s12};
+  padding: ${props => props.theme.spacing.s2};
   color: ${props => props.theme.color.gray.dark};
+  background-color: ${props => props.theme.color.gray.light};
+  border-radius: ${props => props.theme.borderRadius.default};
 
   &:hover {
     background-color: ${props => props.theme.color.gray.dark};
@@ -29,7 +26,7 @@ const LinkAdd = styled(Link)`
 
   svg {
     fill: currentColor;
-    margin-bottom: ${props => props.theme.spacing.s2};
+    margin-right: ${props => props.theme.spacing.s2};
   }
 `;
 

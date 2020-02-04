@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import CreateItem from './CreateItem';
 import Address from './Address';
 import { useAddressList } from '../../hooks';
 
@@ -9,7 +8,6 @@ const Home = () => {
 
   return (
     <Container>
-      <CreateItem />
       {addresses &&
         addresses.map(address => (
           <Address key={address.id} address={address} />

@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Logo from '../svg/Logo';
+import Logo from '../../svg/Logo';
+import CreateAddress from './CreateAddress';
 
 const Navigation = () => (
   <Header>
@@ -9,14 +10,19 @@ const Navigation = () => (
       <Logo />
       <span>Endereços</span>
     </LinkLogo>
+    <CreateAddress />
   </Header>
 );
 
 const Header = styled.header`
-  display: flex;
-  justify-content: center;
   background-color: ${props => props.theme.color.gray.dark};
   padding: ${props => props.theme.spacing.s3};
+
+  @media (min-width: ${props => props.theme.screen.sm}) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `;
 
 const LinkLogo = styled(Link)`

@@ -4,7 +4,7 @@ import Loading from '../../components/Loading';
 import StaticMap from './StaticMap';
 import { useAddressData, useAddressCoords } from '../../hooks';
 
-const ListItem = ({ address }) => {
+const Address = ({ address }) => {
   const addressData = useAddressData(address);
   const addressCoords = useAddressCoords(address, addressData);
 
@@ -86,4 +86,4 @@ const Span = styled.span`
   font-size: ${props => props.theme.fontSize.sm};
 `;
 
-export default ListItem;
+export default Address;

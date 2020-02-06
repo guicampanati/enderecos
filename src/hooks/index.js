@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useLayoutEffect } from 'react';
 import addressService from '../services/addresses';
 import viacep from '../services/viacep';
 import locationiq from '../services/locationiq';
@@ -105,4 +105,21 @@ export const useAddressWeather = addressCoords => {
   }, [addressCoords]);
 
   return addressWeather;
+};
+
+export const useWindowSize = () => {
+  const [size, setSize] = useState([0, 0]);
+
+  useLayoutEffect(() => {
+    const updateSize = () => {
+      setSize([window.innerWidth, window.innerHeight]);
+    };
+
+    window.addEventListener('resize', updateSize);
+    updateSize();
+
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+
+  return size;
 };

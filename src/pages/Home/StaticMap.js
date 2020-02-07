@@ -10,7 +10,7 @@ const StaticMap = ({ address, addressCoords }) => (
       <Div>
         <Link to={`/${address.id}`}>
           <Img
-            src={`https://maps.locationiq.com/v2/staticmap?key=${LOCATIONIQ_API_KEY}&center=${addressCoords.latitude},${addressCoords.longitude}&zoom=18&markers=icon:small-blue-cutout|${addressCoords.latitude},${addressCoords.longitude}`}
+            src={`https://maps.locationiq.com/v2/staticmap?key=${LOCATIONIQ_API_KEY}&center=${addressCoords.latitude}%2C${addressCoords.longitude}&zoom=12&markers=icon:small-blue-cutout|${addressCoords.latitude}%2C${addressCoords.longitude}`}
             alt="mapa endereço"
           />
         </Link>

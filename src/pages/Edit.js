@@ -15,7 +15,13 @@ const Edit = () => {
         <Form
           initialValues={address}
           onSubmit={address => {
-            addressService.update(id, address);
+            const newAddress = {
+              id: address.id,
+              cep: address.cep,
+              numero: address.numero,
+              complento: address.complento
+            };
+            addressService.update(id, newAddress);
             history.push('/');
           }}
         />

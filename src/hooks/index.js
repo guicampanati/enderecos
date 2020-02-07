@@ -72,19 +72,30 @@ export const useAddressCoords = (address, addressData) => {
 
   useEffect(() => {
     if (addressData) {
-      const { numero, cep } = address;
+      const { numero, cep, coords, id } = address;
       const { logradouro, bairro, localidade } = addressData;
 
-      locationiq
-        .get(
-          `search.php?key=${LOCATIONIQ_API_KEY}&q=${logradouro},${numero},${bairro},${localidade},${cep},Brazil&format=json`
-        )
-        .then(response =>
-          setAddressCoords({
-            latitude: response.data[0].lat,
-            longitude: response.data[0].lon
-          })
-        );
+      if (coords) {
+        setAddressCoords({
+          latitude: coords.latitude,
+          longitude: coords.longitude
+        });
+      } else {
+        locationiq
+          .get(
+            `search.php?key=${LOCATIONIQ_API_KEY}&q=${cep}%2C${logradouro}%2C${numero}%2C${bairro}%2C${localidade}%2CBrazil&format=json`
+          )
+          .then(response => {
+            const coords = {
+              latitude: response.data[0].lat,
+              longitude: response.data[0].lon
+            };
+
+            setAddressCoords(coords);
+
+            addressService.update(id, { ...address, coords });
+          });
+      }
     }
   }, [address, addressData]);
 

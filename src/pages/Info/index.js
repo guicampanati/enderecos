@@ -10,7 +10,6 @@ import {
   useAddressWeather
 } from '../../hooks';
 import Detail from './Detail';
-import Map from './Map';
 import Weather from './Weather';
 import Distance from './Distance';
 
@@ -26,8 +25,6 @@ const Info = () => {
     <Container>
       <Card.Wrapper>
         <Detail address={address} addressData={addressData} />
-
-        <Map addressCoords={addressCoords} />
 
         <Weather addressWeather={addressWeather} />
 

@@ -8,7 +8,7 @@ export const LOCATIONIQ_API_KEY = 'pk.46077fc7923e32dabf8eaee20c030b63';
 export const OPENWEATHER_API_KEY = 'c8606fd98812085499b9669c638e9ed0';
 
 export const useAddressList = () => {
-  const [addresses, setAddresses] = useState(null);
+  const [addresses, setAddresses] = useState([]);
 
   useEffect(() => {
     const addressList = addressService.getAll();

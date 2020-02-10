@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Loading from '../../components/Loading';
 import StaticMap from './StaticMap';
@@ -10,26 +11,29 @@ const Address = ({ address }) => {
 
   return (
     <Container>
-      <StaticMap address={address} addressCoords={addressCoords} />
+      <Link to={`/${address.id}`}>
+        <StaticMap addressCoords={addressCoords} />
 
-      {addressData ? (
-        <Div1>
-          <Div2>
-            <H4>{address.cep}</H4>
+        {addressData ? (
+          <Div1>
+            <Div2>
+              <H4>{address.cep}</H4>
 
-            <H3>
-              {addressData.logradouro}, {address.numero}
-              {address.complemento && <span>/{address.complemento}</span>}
-            </H3>
+              <H3>
+                {addressData.logradouro}, {address.numero}
+                {address.complemento && <span>/{address.complemento}</span>}
+              </H3>
 
-            <Span>
-              {addressData.bairro}, {addressData.localidade} - {addressData.uf}
-            </Span>
-          </Div2>
-        </Div1>
-      ) : (
-        <Loading />
-      )}
+              <Span>
+                {addressData.bairro}, {addressData.localidade} -{' '}
+                {addressData.uf}
+              </Span>
+            </Div2>
+          </Div1>
+        ) : (
+          <Loading />
+        )}
+      </Link>
     </Container>
   );
 };
@@ -72,6 +76,7 @@ const H3 = styled.h3`
   text-overflow: ellipsis;
   white-space: nowrap;
   line-height: 1.25;
+  color: ${props => props.theme.color.gray.dark};
 `;
 
 const H4 = styled.h4`
@@ -79,6 +84,7 @@ const H4 = styled.h4`
   font-size: ${props => props.theme.fontSize.lg};
   margin-top: ${props => props.theme.spacing.s1};
   margin-bottom: ${props => props.theme.spacing.s1};
+  color: ${props => props.theme.color.gray.dark};
 `;
 
 const Span = styled.span`

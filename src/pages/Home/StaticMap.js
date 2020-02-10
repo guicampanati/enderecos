@@ -1,19 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import Loading from '../../components/Loading';
 import { LOCATIONIQ_API_KEY } from '../../hooks';
 
-const StaticMap = ({ address, addressCoords }) => (
+const StaticMap = ({ addressCoords }) => (
   <>
     {addressCoords ? (
       <Div>
-        <Link to={`/${address.id}`}>
-          <Img
-            src={`https://maps.locationiq.com/v2/staticmap?key=${LOCATIONIQ_API_KEY}&center=${addressCoords.latitude}%2C${addressCoords.longitude}&zoom=12&markers=icon:small-blue-cutout|${addressCoords.latitude}%2C${addressCoords.longitude}`}
-            alt="mapa endereço"
-          />
-        </Link>
+        <Img
+          src={`https://maps.locationiq.com/v2/staticmap?key=${LOCATIONIQ_API_KEY}&center=${addressCoords.latitude}%2C${addressCoords.longitude}&zoom=12&markers=icon:small-blue-cutout|${addressCoords.latitude}%2C${addressCoords.longitude}`}
+          alt="mapa endereço"
+        />
       </Div>
     ) : (
       <Loading />

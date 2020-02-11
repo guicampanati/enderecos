@@ -109,9 +109,21 @@ export const useAddressWeather = addressCoords => {
     if (addressCoords) {
       openweather
         .get(
-          `weather?lat=${addressCoords.latitude}&lon=${addressCoords.longitude}&appid=${OPENWEATHER_API_KEY}&units=metric`
+          `forecast?lat=${addressCoords.latitude}&lon=${addressCoords.longitude}&appid=${OPENWEATHER_API_KEY}&units=metric&lang=pt_br`
         )
-        .then(response => setAddressWeather(response.data));
+        .then(response => {
+          // extrair primeiro horário retornado
+          // formato 2020-02-11 21:00:00
+          const first_hour = response.data.list[0].dt_txt.slice(-8);
+
+          // filtrar lista de resultados de 5 dias / 3 horas para 5 dias
+          // https://openweathermap.org/forecast5
+          const forecast = response.data.list.filter(result =>
+            result.dt_txt.includes(first_hour)
+          );
+
+          setAddressWeather(forecast);
+        });
     }
   }, [addressCoords]);
 

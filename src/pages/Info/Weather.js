@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Icon from './Icon';
 
-const Weather = ({ forecast }) => (
-  <Div>
-    <H4>
-      {new Date(forecast.dt_txt).toLocaleDateString('pt-BR', {
-        weekday: 'long',
-        month: 'long',
-        day: 'numeric'
-      })}
-    </H4>
-    <H2>{forecast.main.temp.toFixed()}ºC</H2>
-    <P>{forecast.weather[0].description}</P>
+const Weather = ({ forecast }) => {
+  const [dateFormat, setDateFormat] = useState('');
 
-    <Icon icon={forecast.weather[0].icon} />
-  </Div>
-);
+  useEffect(() => {
+    // Formatar data para formato válido
+    // https://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15
+    const dataString = forecast.dt_txt.replace(' ', 'T');
+    const date = new Date(dataString).toLocaleDateString('pt-BR', {
+      weekday: 'long',
+      month: 'long',
+      day: 'numeric'
+    });
+    setDateFormat(date);
+  }, [forecast.dt_txt]);
+
+  return (
+    <Div>
+      <H4>{dateFormat}</H4>
+      <H2>{forecast.main.temp.toFixed()}ºC</H2>
+      <P>{forecast.weather[0].description}</P>
+
+      <Icon icon={forecast.weather[0].id} />
+    </Div>
+  );
+};
 
 const Div = styled.div`
   display: flex;

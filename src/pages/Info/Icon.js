@@ -1,7 +1,5 @@
 import React from 'react';
 
-const Icon = ({ icon }) => (
-  <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} />
-);
+const Icon = ({ icon }) => <i className={`owf owf-${icon} owf-4x`} />;
 
 export default Icon;

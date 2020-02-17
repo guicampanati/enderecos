@@ -23,10 +23,13 @@ const Info = () => {
   return (
     <>
       <Container>
-        {addressWeather &&
-          addressWeather.map((forecast, index) => (
-            <Weather key={index} forecast={forecast} />
-          ))}
+        {addressWeather && (
+          <Weather
+            address={address}
+            addressData={addressData}
+            addressWeather={addressWeather}
+          />
+        )}
       </Container>
       <Div>
         <Distance userCoords={userCoords} addressCoords={addressCoords} />
@@ -40,6 +43,7 @@ const Info = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   flex-wrap: nowrap;
   overflow: auto;
   margin: auto;

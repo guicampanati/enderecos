@@ -146,3 +146,17 @@ export const useWindowSize = () => {
 
   return size;
 };
+
+export const useFormatDate = (dt_txt, options) => {
+  const [dateFormatted, setDateFormatted] = useState('');
+
+  useEffect(() => {
+    // Formatar data para formato válido
+    // https://www.ecma-international.org/ecma-262/5.1/#sec-15.9.1.15
+    const dataString = dt_txt.replace(' ', 'T');
+    const date = new Date(dataString).toLocaleDateString('pt-BR', options);
+    setDateFormatted(date);
+  }, [dt_txt, options]);
+
+  return dateFormatted;
+};

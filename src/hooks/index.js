@@ -72,8 +72,8 @@ export const useAddressCoords = (address, addressData) => {
 
   useEffect(() => {
     if (addressData) {
-      const { numero, cep, coords, id } = address;
-      const { logradouro, bairro, localidade } = addressData;
+      const { cep, coords, id } = address;
+      const { logradouro, localidade } = addressData;
 
       if (coords) {
         setAddressCoords({
@@ -83,7 +83,7 @@ export const useAddressCoords = (address, addressData) => {
       } else {
         locationiq
           .get(
-            `search.php?key=${LOCATIONIQ_API_KEY}&q=${cep}%2C${logradouro}%2C${numero}%2C${bairro}%2C${localidade}%2CBrazil&format=json`
+            `search.php?key=${LOCATIONIQ_API_KEY}&postalcode=${cep}&street=${logradouro}&city=${localidade}&country=Brazil&format=json`
           )
           .then(response => {
             const coords = {

@@ -4,11 +4,11 @@ import styled from 'styled-components';
 
 const Modal = ({ title, content, actions, onDismiss }) => {
   return ReactDOM.createPortal(
-    <Container onClick={onDismiss}>
+    <Container id="dismiss" onClick={onDismiss}>
       <Wrapper onClick={e => e.stopPropagation()}>
-        <Title>{title}</Title>
-        <Content>{content}</Content>
-        <Actions>{actions}</Actions>
+        <Title id="title">{title}</Title>
+        <Content id="content">{content}</Content>
+        <Actions id="actions">{actions}</Actions>
       </Wrapper>
     </Container>,
     document.getElementById('modal')

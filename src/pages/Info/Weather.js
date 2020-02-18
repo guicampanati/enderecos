@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Icon from './Icon';
 import Forecast from './Forecast';
+import Address from './Address';
 import { useFormatDate } from '../../hooks';
 
 const Weather = ({ address, addressData, addressWeather }) => {
@@ -16,12 +17,8 @@ const Weather = ({ address, addressData, addressWeather }) => {
     <Container>
       <Div1>
         <Div2>
-          <H3>{addressData.cep}</H3>
-          <H3>{address.numero}</H3>
-          {address.complemento && <H3>{address.complemento}</H3>}
-          <H3>{addressData.logradouro}</H3>
-          <H3>{addressData.bairro}</H3>
-          <H3>{addressData.localidade}</H3>
+          <Address address={address} addressData={addressData} />
+
           <H4>{date}</H4>
 
           <H2>{addressWeather[0].main.temp.toFixed()}ºC</H2>
@@ -78,12 +75,6 @@ const H4 = styled.h4`
   font-size: ${props => props.theme.fontSize.base};
   margin-top: ${props => props.theme.spacing.s1};
   margin-bottom: ${props => props.theme.spacing.s1};
-`;
-
-const H3 = styled.h3`
-  font-weight: ${props => props.theme.fontWeight.normal};
-  font-size: ${props => props.theme.fontSize.base};
-  margin: 0;
 `;
 
 const P = styled.p`

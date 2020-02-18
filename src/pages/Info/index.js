@@ -70,6 +70,8 @@ const Container = styled.div`
 const Div = styled.div`
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: ${props => props.theme.spacing.s4};
 `;
 
 export default Info;

@@ -19,10 +19,10 @@ const Edit = () => {
               id: address.id,
               cep: address.cep,
               numero: address.numero,
-              complento: address.complento
+              complemento: address.complemento
             };
             addressService.update(id, newAddress);
-            history.push('/');
+            history.push(`/${id}`);
           }}
         />
       )}

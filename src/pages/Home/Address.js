@@ -10,21 +10,21 @@ const Address = ({ address }) => {
   const addressCoords = useAddressCoords(address, addressData);
 
   return (
-    <Container>
+    <Container id="home-address">
       <Link to={`/${address.id}`}>
         <StaticMap addressCoords={addressCoords} />
 
         {addressData ? (
           <Div1>
             <Div2>
-              <H4>{address.cep}</H4>
+              <H4 id="home-address-cep">{address.cep}</H4>
 
-              <H3>
+              <H3 id="home-address-main">
                 {addressData.logradouro}, {address.numero}
                 {address.complemento && <span>/{address.complemento}</span>}
               </H3>
 
-              <Span>
+              <Span id="home-address-section">
                 {addressData.bairro}, {addressData.localidade} -{' '}
                 {addressData.uf}
               </Span>

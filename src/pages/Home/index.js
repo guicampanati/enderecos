@@ -8,7 +8,7 @@ const Home = () => {
   const addresses = useAddressList();
 
   return (
-    <Container>
+    <Container id="home">
       {addresses &&
         addresses.map(address => (
           <Address key={address.id} address={address} />

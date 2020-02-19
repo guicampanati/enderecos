@@ -12,7 +12,7 @@ const Navigation = () => {
 
   return (
     <Nav>
-      <LinkLogo to={'/'}>
+      <LinkLogo to={'/'} id="link-logo">
         <Logo />
         <span>Endereços</span>
       </LinkLogo>
@@ -27,12 +27,16 @@ const Navigation = () => {
         <>
           <Menu>
             <MenuItems>
-              <Link to={'/'}>Listar Endereços</Link>
+              <Link to={'/'} id="list-addresses">
+                Listar Endereços
+              </Link>
             </MenuItems>
           </Menu>
 
           <div>
-            <LinkCreate to="/criar">Adicionar Endereço</LinkCreate>
+            <LinkCreate to="/criar" id="add-address">
+              Adicionar Endereço
+            </LinkCreate>
           </div>
         </>
       )}

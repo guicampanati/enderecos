@@ -26,6 +26,8 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   width: ${props => props.theme.width.full};
+  border-top-width: 1px;
+  border-color: ${props => props.theme.color.gray.light};
 `;
 
 const Div = styled.div`

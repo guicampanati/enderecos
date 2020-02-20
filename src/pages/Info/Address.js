@@ -4,14 +4,14 @@ import Button from '../../components/Button';
 
 const Address = ({ address, addressData }) => {
   return (
-    <Container>
+    <Container id="info-address">
       <Div>
-        <H4>
+        <H4 id="info-address-main">
           {addressData.logradouro}, {address.numero}
           {address.complemento && <span>/{address.complemento}</span>}
         </H4>
-        <H3>{addressData.cep}</H3>
-        <Span>
+        <H3 id="info-address-cep">{addressData.cep}</H3>
+        <Span id="info-address-section">
           {addressData.bairro}, {addressData.localidade} - {addressData.uf}
         </Span>
       </Div>

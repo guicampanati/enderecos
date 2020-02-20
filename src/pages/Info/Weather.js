@@ -21,9 +21,9 @@ const Weather = ({ address, addressData, addressWeather }) => {
 
           <H4>{date}</H4>
 
-          <H2>{addressWeather[0].main.temp.toFixed()}ºC</H2>
+          <H2 id="weather-temp">{addressWeather[0].main.temp.toFixed()}ºC</H2>
 
-          <P>{addressWeather[0].weather[0].description}</P>
+          <P id="weather-info">{addressWeather[0].weather[0].description}</P>
           <Icon icon={addressWeather[0].weather[0].id} />
 
           {addressWeather.map((forecast, index) => (

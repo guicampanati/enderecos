@@ -4,9 +4,6 @@ import viacep from '../services/viacep';
 import locationiq from '../services/locationiq';
 import openweather from '../services/openweather';
 
-export const LOCATIONIQ_API_KEY = 'pk.46077fc7923e32dabf8eaee20c030b63';
-export const OPENWEATHER_API_KEY = 'c8606fd98812085499b9669c638e9ed0';
-
 export const useAddressList = () => {
   const [addresses, setAddresses] = useState([]);
 
@@ -83,7 +80,7 @@ export const useAddressCoords = (address, addressData) => {
       } else {
         locationiq
           .get(
-            `search.php?key=${LOCATIONIQ_API_KEY}&postalcode=${cep}&street=${logradouro}&city=${localidade}&country=Brazil&format=json`
+            `search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&postalcode=${cep}&street=${logradouro}&city=${localidade}&country=Brazil&format=json`
           )
           .then(response => {
             const coords = {
@@ -109,7 +106,7 @@ export const useAddressWeather = addressCoords => {
     if (addressCoords) {
       openweather
         .get(
-          `forecast?lat=${addressCoords.latitude}&lon=${addressCoords.longitude}&appid=${OPENWEATHER_API_KEY}&units=metric&lang=pt_br`
+          `forecast?lat=${addressCoords.latitude}&lon=${addressCoords.longitude}&appid=${process.env.REACT_APP_OPENWEATHER_API_KEY}&units=metric&lang=pt_br`
         )
         .then(response => {
           // extrair primeiro horário retornado

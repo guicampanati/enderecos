@@ -1,7 +1,7 @@
 import React from 'react';
-import { render } from '../../test-utils';
+import { render } from '../../../test-utils';
 import { waitForElement } from '@testing-library/react';
-import Weather from '../Info/Weather';
+import Weather from '../Weather';
 
 describe('<Weather /> ', () => {
   const props = {

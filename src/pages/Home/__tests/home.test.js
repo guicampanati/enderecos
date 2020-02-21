@@ -1,7 +1,7 @@
 import React from 'react';
-import { render } from '../../test-utils';
+import { render } from '../../../test-utils';
 import { waitForElement } from '@testing-library/react';
-import Home from '../Home';
+import Home from '..';
 
 describe('<Home />', () => {
   let component;

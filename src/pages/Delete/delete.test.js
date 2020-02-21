@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '../../test-utils';
-import Delete from '../Delete';
+import Delete from '.';
 
 describe('<Delete />', () => {
   let component;

@@ -1,11 +1,11 @@
 import React from 'react';
-import { render } from '../../test-utils';
-import StaticMap from '../Home/StaticMap';
+import { render } from '../../../test-utils';
+import StaticMap from '../StaticMap';
 
 describe('<StaticMap />', () => {
   const props = { addressCoords: { latitude: '123', longitude: '456' } };
 
-  test('should render image ith correct attributes', () => {
+  test('should render image with correct attributes', () => {
     const component = render(<StaticMap addressCoords={props.addressCoords} />);
     const img = component.container.querySelector('img');
 

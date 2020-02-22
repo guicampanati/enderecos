@@ -22,7 +22,8 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REACT_APP_LOCATIONIQ_API_KEY: ${{ secrets.REACT_APP_LOCATIONIQ_API_KEY }}
-          REACT_APP_OPENWEATHER_API_KEY: ${{ secrets.REACT_APP_OPENWEATHER_API_KEY }}
           BRANCH: gh-pages
           FOLDER: build
+        env:
+          REACT_APP_LOCATIONIQ_API_KEY: ${{ secrets.REACT_APP_LOCATIONIQ_API_KEY }}
+          REACT_APP_OPENWEATHER_API_KEY: ${{ secrets.REACT_APP_OPENWEATHER_API_KEY }}
